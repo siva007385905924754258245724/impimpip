@@ -1,0 +1,71 @@
+import pandas as pd 
+import numpy as np 
+
+#1st experiment 
+s=pd.Series(np.array([1,3,4,7,8,8,9]))
+print(s)
+#  create a dictionary 
+dictionary = {'X' : 10, 'Y' : 20, 'Z' : 30} 
+
+#  create a series 
+series = pd.Series(dictionary) 
+print(series)
+
+#--end 1st exp argument--
+#-- start 2nd exp argument--
+s1=pd.Series(np.array([2,4,5,10,18,20,25]))
+print(s1)
+res=s.quantile(q=0.75)
+print()
+print('75th Percentile of the series is::')
+print(res)
+print()
+print('The elements that above the 75th percentile:')
+print(s1[s1>res])
+
+#--end 2nd exp argument--
+#-- start 3rd exp argument--
+s3=pd.Series([10,20,30],index=['a','b','c'])
+s4=pd.Series([2,5],index=['a','b'])
+print("The Addition of two series object is:")
+print(s3+s4)
+print("The Subtraction of two series object is:")
+print (s3-s4)
+print("The Multiplication of two series object is:")
+print (s3*s4)
+print("The Division of two series object is:")
+print(s3/s4)
+
+#--end 3rd exp argument--
+#-- start 4th exp argument--
+l=[['ARun',21],['bala',23],['cahran',22]]
+d=pd.DataFrame(l,index=['stu1','stu2','stu3'],columns=['Name','Age'])
+print(d)
+
+#--end 4th exp argument--
+#-- start 5th exp argument--
+dic12={'Name': ['Rohit', 'Mohit','Deepak','Anil','Pankaj', 'Sohit','Geeta'],
+'MarksinIP':[85,45,92,85,98,96,84]}
+marks=pd.DataFrame(dic12)
+print(marks.nlargest(3, ['MarksinIP']))
+
+#--end 5rd exp argument--
+#-- start 6th exp argument--
+dic14={'Data1': [-5,-2,5,8,9,-6],
+'Data2': [2,4,10,15,-5,-8]}
+df3=pd.DataFrame(dic14)
+print(df3)
+print()
+print("dataFrame after replacing negative values with 0:::")
+df3[df3<0]=0
+print(df3)
+#--end 6td exp argument--
+#-- start 7th exp argument--
+empdata={ 'empid': [101,102,103,104,105,106],
+'ename': ['Sachin', 'Vinod', 'Lakhbir',np.nan, 'Devinder','UmaSelvi'],
+'Doj':['12-01-2012','15-01-2012','05-09-2007','17-01-2012',np.nan, '16-01-2012']}
+df=pd.DataFrame(empdata)
+print(df)
+df=df.fillna({'ename':999,'Doj':999})
+print()
+print(df)
